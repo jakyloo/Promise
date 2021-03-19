@@ -1,0 +1,152 @@
+
+	button.resolved{
+		-webkit-box-shadow: 0px 0px 9px 0px rgba(109,209,121,1);
+		-moz-box-shadow: 0px 0px 9px 0px rgba(109,209,121,1);
+		box-shadow: 0px 0px 9px 0px rgba(109,209,121,1);
+	}
+	
+	button.rejected{
+		-webkit-box-shadow: 0px 0px 9px 0px rgba(255,0,0,1);
+		-moz-box-shadow: 0px 0px 9px 0px rgba(255,0,0,1);
+		box-shadow: 0px 0px 9px 0px rgba(255,0,0,1);
+	}
+
+
+	body{
+		font-family: Verdana;
+		font-size: 12px;
+		margin: 30px;
+		background-color: #DDD;
+		line-height: 190%;
+	}
+	
+	fieldset{
+		border:solid 1px #aaa;
+		margin:auto;
+		margin-bottom:30px;
+		background-color:#FFFFFF;
+		border-radius: 5px;
+		width:810px;
+		padding: 10px 10px 25px 20px;
+		/*max-width:1000px;*/
+		-webkit-box-shadow: 10px 10px 58px 0px rgba(156,156,156,1);
+		-moz-box-shadow: 10px 10px 58px 0px rgba(156,156,156,1);
+		box-shadow: 10px 10px 58px 0px rgba(156,156,156,1);
+	}
+	legend{
+		background-color:#FFFFFF;
+		padding:2px 6px 4px 6px;
+		border-top:solid 1px #ddd;
+		margin-top:20px;
+		border-radius: 5px;
+	}
+	
+	legend span.SectionLabel{
+		font-weight:normal;
+		padding-right:6px;
+	}
+	legend span.SectionTitle{
+		color:#D35400;
+		font-weight:bold;
+	}	
+	fieldset p.note{
+		/* padding:20px; */
+	}
+	
+	
+	
+	/* ============================================================ */
+	div.console{
+		border:solid 1px #ccc;
+		background-color:white;
+		margin-right:20px;
+		height:400px;
+		padding:15px;
+		overflow-x: hidden;
+		overflow-y: scroll;
+	}
+	
+	div.console ul{
+		border:solid 0px #ccc;
+		margin:0px;
+		padding:0px;
+		list-style: none;
+	}
+	
+	div.console ul li{
+		border:solid 0px #ccc;
+		margin:0px;
+		width:280px;
+		margin-bottom:5px;
+	}
+	/* ============================================================ */
+	
+	table.PBStaus{
+		font-family:verdana;
+		margin-bottom:20px;
+		height:20px;
+	}
+	
+	table.PBStaus td{
+		padding: 2px 8px 2px 8px;
+		height:5px;
+		border-bottom-style:solid;
+		border-bottom-width:2px;
+		border-bottom-color:red;
+		/*border:solid 1px red;*/
+	}
+	table.PBStaus td.space{
+		width:25px;
+		border-bottom-color:transparent;
+	}
+	
+	td.pbsContainer, td.btnsContainer, td.msgContainer{
+		vertical-align:top;
+		padding: 5px 5px 5px 5px;
+	}
+	
+	td.btnsContainer{
+		/* La larghezza dei btns  */
+		width:230px;
+	}	
+	
+	td.pbsContainer{
+		/*width:330px;*/
+	}
+	td{
+		/* border:solid 1px red; */
+	}	
+	td.msgContainer{
+		color:#555;
+		font-family: Verdana;
+		/* font-size:10px; */
+		padding-left:45px;
+	}	
+
+	div.scroll{
+		max-height:300px;
+		width:330px;
+		overflow-y:auto;
+		overflow-x: hidden;
+		border: solid 1px transparent;
+	}
+	td.btnsContainer button{
+		margin:5px;
+		width:150px;
+		/*color:#333;*/
+		/*font-family: Verdana;*/
+		/*font-size:10px;*/
+		/*margin-top:5px;*/
+		/*display: block;*/			
+	}
+	
+	td.btnsContainer button.left{
+		text-align:left;
+		padding-left:20px;	
+	}
+	
+	/* the emoji: men in black. */
+	.MIB{
+		background-repeat: no-repeat;		
+		background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMBSURBVEhLtZZNTBNBFMf/u9uWQiNlKbR8CARQxC8SAwqiMXrwoGiiEI4iBxOjiRdD8MpBEyEmHkzUmIgh3jR64qqc0HgyaEJiKh8CAoJQQEoK3XZ9MzulLJQtEfwlm868mXn/2bdv3lTSdR2WTL7WsfAFCI0A2oJhs6UDzkIgvQLIaZQMY2I2Fxhs1xH4QI0kGwD5V2uBkjsJhTYKzPToGHkMRJeFYYvIKUDhTcBzxiRkFph8o+Nnl+j8I/lXKWwNqyKy+DV2vl3nDOaD+RLEBSgsETJrUSBCTzRZ6NfA5rI1sbUYeWIMEDxEDY2X9NGxcSyHdURptkQvKMsSXE4J2W4FBV4FJbk2uF3GfuaDUQxOaBidjmB6LoJgyFjHos3WpTgkFOTn4d7dDkPg4vkafWBc44utUHfJXHx2gW3TmmLaUOez5xQiyvPOliyebVZ4VQU9D3z8yclUhDUxbBMvWjzw2ftJgA5RtltGKSlacWSPAw6bBLsiobLMIayJKfLZ4M2gTZBvmZ9QorKM8tiCEwfj48cPWM+tim2AfMux43+hOpX/JsJH4ak7Fh8/dzQVPosw1dWkGQ3yrbRdL29j5SDPo0Cm15+cjWBF0+GwS/CkK6jal4L711TjlQUsTKcOOzFBc0Ms8yh7bGTL9djQdNaFy7VCQKKk0PuadIQDhmGnsasUIlYV/xfkW+Yldx1/FlcQmA+JXnLYXLZmA+RbNuq5+RCEtQg6nvai+70fi0sJFgrYWPc7P9pprsZrxBoo/sy3UU157e8VIwbfhwN41PUJWjiC/Xu9KC1S4VHTeDmYnVvCwI8A+v1TlAwKbjVX83ET6km6I1qFAONzI6WD+Q749TuIl2/74B+aERYzZSVZuFJfAa/HJSwC2Ukn8xUPS1yAldjhh0Z7HUOjc/j6bQrTM0HeZw4PlftQvNvN+xsovg1knl4nwNiRC6eZYl+/+lHNAgx+ZVI9j249izgsLIU3klyZa+Ef/iM1kpRmli0Z7NJvNaeiYHOBGNv62wL8BQpDK3So/IGhAAAAAElFTkSuQmCC');
+	}

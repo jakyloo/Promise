@@ -1,0 +1,27 @@
+
+	#ulR6A span.action{
+		display: inline-block;
+		width: 65px;
+		border:solid 1px transparent;
+	}	
+	
+	#ulR6A span.text{
+		display: inline-block;
+		width: 99px;
+		border:solid 1px transparent;
+	}			
+	#ulR6A span.elapsed{
+		display: inline-block;
+		width: 65px;
+		border:solid 1px transparent;
+		font-family:"courier new";
+		text-align:right;
+		padding-right:25px;
+	}			
+	#ulR6A li {
+		background-color:#FFF;
+		border:solid 1px #ccc;
+		margin:3px;
+		padding:2px 3px 2px 4px;
+		list-style-type:none
+	}

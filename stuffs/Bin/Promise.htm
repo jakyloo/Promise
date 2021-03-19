@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Control</title>
+
+	<link href="styles.css" rel="stylesheet" type="text/css" />
+	<link href="styles.R6A.css" rel="stylesheet" type="text/css" />
+
+	
+	<style type="">
+	
+	.PGUIBase{		
+		width: 25px;
+		border-radius: 20px;
+		height:100%;
+		border-style:solid;
+		border-width:2px;		
+	}
+
+	.PGUIError{
+		/*border-color: #fff;*/		
+		/*background-color:#FFF;*/
+		background-position: center; 
+	}	
+
+	.fulfilled{
+		-webkit-box-shadow: 0px 0px 9px 3px rgba(255,255,0,0.73);
+		-moz-box-shadow: 0px 0px 9px 3px rgba(255,255,0,0.73);
+		box-shadow: 0px 0px 9px 3px rgba(255,255,0,0.73);
+	}	
+	
+	
+	.error{
+		background-repeat: no-repeat;		
+		background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAOCAYAAAAmL5yKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFsSURBVDhPjZG/SgNBEMa/JIbciaJJioCF4qkgRBBbSaVvkN7CQuytbG1EX0Gw0BcQBMFoFdAiLyBGFBXlDCQYlSQeenH9dt2cl39wP27Ym93Zb2Zn0I+vaHSiAhRol9+mOaa3gyGAVA0ochXSKJLXR8GoA1uty9JeAfcMCFYFLyyWgIdqLCYqcwuikk6L60RCVnHPs5QO6w+z52XW50xGtChTRO69Afs6zCOsV0UDkSVmmtduFwawUjcMS7sKT0CW3kRzbxwYkX5I7bYTA6I/jnPif4on4ALbQ8CUdqVgTxgz2wDWtfsnILOz09NqJxgb/irAmavG+e3OsoSdOxf2aU6Uk8m2M2lV4FBdZjnLj8BHZ8BLNqtn8D8Fvzl8NacyE2b2HTZuWKn5iJum/usNGxph3w4iaxRIAl3RA6USag0HTxcFmMdHGHQZ3sEnMBq6AjbZ2VWW5U2O6oa0W+CGb32Pc7STAL92bGD3F7wzqJJcJFvqAAAAAElFTkSuQmCC');
+	}
+	
+
+
+	
+	div.progressBar{
+		border-style: solid;
+		border-width: 1px;
+		border-color: #ccc;
+		
+		border-left-width: 1px;
+		border-right-width: 1px;
+		empty-cells:show;
+		padding:2px;
+		width:200px;
+		display:inline-block;
+		background-position: center left; 
+		background-origin: content-box;
+		margin-left:0px;
+	}
+	
+	div.rejected{
+		border-color:#FF0000;
+	}
+	
+	div.resolved{
+		border-color:#44CD5A;
+	}
+	
+	div.fulfilled{
+		border-color:#F8F413;
+		padding-top:3px;padding-bottom:3px;
+	}	
+	
+	div.bar{
+		border : solid 0px #FFF;
+		empty-cells:show;
+		margin:0px;
+		width:30%;
+		color:#FFF;
+	}
+	
+	div.bar span{
+		padding-left:4px;
+		margin-top:-10px;
+		border : solid 1px transparent;
+		font-size:12px;
+	}
+	
+	span.message{
+		display:inline-block;
+		margin-left:0px;
+	}
+	
+	spa n.prom ises{
+
+		background-color:white;
+		display:inline-block;
+		height:100%;
+		width:2px;
+		color:red;
+	}
+	
+	table.demo{
+		/* border: solid 1px red; */
+		border-spacing: 5px 10px;
+		width:100%;
+	}
+	
+	table.demo td.promise{
+		height:24px;
+		width:24px;
+		/*color:red;*/
+		/* margin:0px; */
+		padding:1px;
+		border-radius: 6px;
+		border-style: solid;
+		border-top:solid 1px #ccc;
+		border-bottom:solid 1px #ccc;
+		border-left-width:  15px;
+		border-right-width: 15px;
+		background-position: center center;
+		background-origin: content-box;
+		empty-cells:show;
+	}
+	
+	table.demo td.pendingL{
+		border-left-color:  #cccccc;
+	}
+		
+	table.demo td.pendingR{
+		border-right-color:  #cccccc;
+	}
+	
+	table.demo td.resolved{
+		border-left-color:  #44CD5A;		
+	}
+	
+	table.demo td.rejected{
+		border-left-color:  #F00;
+	}	
+	
+	table.demo td.catched{
+		border--color:  #F00;		
+	}
+	
+	table.demo td.fulfilled{
+		border-right-color: rgb(255,216,0); /* #F8F413;	*/
+	}
+	
+	
+	
+	td{
+		/* border:solid 1px red; */
+	}
+	
+	
+	table.PBStaus td{
+		padding: 2px 8px 2px 8px;
+		border-bottom:solid 1px transparent;
+	}
+	
+	table.PBStaus td.pending{
+		background-color:#cccccc;
+		border-bottom-color:#cccccc;
+	}	
+	
+	table.PBStaus td.resolved{
+		background-color:#44CD5A;
+		border-bottom-color:#44CD5A;
+	}
+	
+	table.PBStaus td.rejected{
+		background-color:#FF0000;
+		border-bottom-color:#FF0000;
+	}
+	
+	table.PBStaus td.timeout{
+		background-color:#FF0000;
+		border-bottom-color:#FF0000;
+	}
+	
+	table.PBStaus{
+		font-family:verdana;
+		margin-bottom:20px;
+		height:20px;
+	}
+
+	
+	table.PBStaus td.space{
+		width:25px;
+	}	
+	</style>
+
+	<script src="jquery-1.11.3.js"></script>
+	<script src="ProgressBar.js"></script>
+	<script src="PromiseGUI.js"></script>
+	
+	<script language="javascript"> 
+		/*
+		window.onerror =  function(message, source, lineno, colno, error) { 
+			var msg = 'message = ' + message + '\n' +
+					  'source = ' + source + '\n' +
+					  'lineno = ' + lineno + '\n' +
+					  'colno = ' + colno + '\n' +
+					  'error = ' + error + '\n';
+			alert(msg);
+		}
+		*/
+		
+		window.onerror = function (msg, url, lineNo, columnNo, error) {
+		  var string = msg.toLowerCase();
+		  var substring = "script error";
+		  if (string.indexOf(substring) > -1){
+			alert('Script Error: See Browser Console for Detail');
+		  } else {
+			var message = [
+			  'Message: ' + msg,
+			  'URL: ' + url,
+			  'Line: ' + lineNo,
+			  'Column: ' + columnNo,
+			  'Error object: ' + JSON.stringify(error)
+			].join('\n');
+
+			alert(message);
+		  }
+
+		  return false;
+		};		
+		
+		$(document).ready(function() {
+		});	
+
+	</script>	
+	
+
+</head>
+
+
+<body>
+<!-- <div style='float:right; width: 300px;padding-right:40px;'>
+ <div class="console" style='position: fixed'>
+   <ul id="ulConsole">
+	<li style="padding: 2px 10px 2px 10px;border:solid 2px #FF0000;">sdad</li>
+   <ul>
+ </div>
+</div> -->
+
+<div style="margin-bottom:20px;">
+
+	<!--Note  -->
+	<fieldset >
+			<p class="note">
+				Examples use '<span style="color:blue;font-weight:normal;">debugger</span>': keep the browser in <span style="color:red;font-weight:normal;">debug mode</span>, to easily locate the topic point.<br/>
+				<span style="font-size:0.9em;font-style: italic;">(Dive directly into the code, for a better 'user experience' :)</span>
+			</p>
+	</fieldset>
+
+
+
+	<fieldset >
+			<h1 style="font-weight:normal;">The <b>Promise</b> object</h1>
+			<!--h3>Code centric tutorial</h3-->
+			<!--p class="note">
+				During the process of learning how 'Promise' works, I wrote some examples to test my comprehension. Here they are, in the hope can help others to start master this versatile tool.<br/>
+				<br/>
+				The code is developed in a slightly formal, object-oriented way. Maybe sometimes a little bit pedantic but, when studying, I think is better moving between concepts step by step.<br/>
+				<br/>
+				Enjoi				
+				<span style="color:blue;font-weight:normal;"></span><span style="color:red;font-weight:normal;"></span>
+			</p-->	
+			<p class="note">
+			Working with 'Promise' involves this concepts:
+			<ul style="margin-top:0px;">
+				<li>1) - One or more 'entities', each one knows how to do something. Once completed, each one must call one of two functions:
+					<ul>
+						<li>'resolve': if successful;</li>
+						<li>'reject': otherwise;</li>
+					</ul>
+				</li>		
+
+				<li style="margin-top:15px;">2) An 'entity' (the 'Promise' object) that provides the functions 'resolve' and 'reject' called by the entity at point 1) and knows which function to call between the functions provided by the entity at point 3).
+				</li>
+
+				<li style="margin-top:15px;">3) An 'entity' that provides 4 public functions:
+					<ul>
+						<li>'resolved': to be called if everything went as expects in entity 1); </li>
+						<li>'rejected': to be called otherwise; </li>
+						<li>'finally': to be always called after 'resolved' or rejected';
+						<li>'catch': to be called in the event of exceptions;</li>
+					</ul>
+				</li>
+	
+
+			</ul>	
+			</p>	
+
+	</fieldset>	
+	
+		
+
+
+
+	<!--Note  -->
+	<fieldset >
+		<legend>Note</legend>
+			<p class="note">
+			Working with 'Promise' involves this concepts:
+			<ul style="margin-top:0px;">
+				<li>1) - One or more 'entities', each one knows how to do something. Once completed, each one must call one of two functions:
+					<ul>
+						<li>'resolve': if successful;</li>
+						<li>'reject': otherwise;</li>
+					</ul>
+				</li>		
+
+				<li style="margin-top:15px;">2) An 'entity' (the 'Promise' object) that provides the functions 'resolve' and 'reject' called by the entity at point 1) and knows which function to call between the functions provided by the entity at point 3).
+				</li>
+
+				<li style="margin-top:15px;">3) An 'entity' that provides 4 public functions:
+					<ul>
+						<li>'resolved': to be called if everything went as expects in entity 1); </li>
+						<li>'rejected': to be called otherwise; </li>
+						<li>'finally': to be always called after 'resolved' or rejected';
+						<li>'catch': to be called in the event of exceptions;</li>
+					</ul>
+				</li>
+	
+
+			</ul>	
+			</p>	
+	</fieldset>		
+		
+
+	
+	<!--Section 1A  -->
+	<fieldset>
+		<legend><span class="SectionLabel">Section 1A:</span><span class="SectionTitle">'ProgressBar':<span style="font-weight:normal;"> how it works.</span></span></legend>
+		<table border="0" style="width:100%;" >
+		
+			<tr>
+				<td class="msgContainer" colspan="3"> 
+					This section shows the '<b>progressBar</b>' and how it works.
+					<br/>
+				</td>
+			</tr>
+			
+			<tr>
+				<td colspan="3" id="tdR1AC2" style="text-align:center;"> 
+					<!-- progressBar place holder -->
+				</td>				
+			</tr>
+			
+			<tr>
+				<td class="msgContainer" colspan="3"> 
+					<br/>
+					It's <b>a model of a running process for the entity at point 1)</b> in the previous note.<br/>
+					The 'ProgressBar' has 5 status:<br/>
+					<br/>
+					<table class="PBStaus" style="" cellpadding="0" cellspacing="0" >
+						<tr>
+							<td class="pending"></td>
+							<td>Running</td>
+							
+							<td class="space"></td>	
+							
+							<td class="resolved"></td >
+							<td style="">Resolved</td>
+							
+							<td class="space"></td>
+							
+							<td class="rejected"></td>
+							<td style="">Rejected</td>
+							
+							<td class="space"></td>
+							
+							<td class="timeout" style="color:white;">Timeout</td>
+							<td style="">Rejected</td>
+							
+							<td class="space"></td>
+						
+							<td class="error" style="width:20px;background-position: 1px 2px;"></td>	
+							<td style="">Rejected (internal error)</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			
+			
+			<tr>
+				<td class="msgContainer" colspan="3"> 
+					The'ProgressBar' has also a function named: '<b>start</b>', designed to be used by a 'Promise'. It accepts 2 callbacks: 'resolve', 'reject'. When 'start' is complete <b>calls one and only one of them</b>.<br/>
+					<br/>
+					'<b>Timeout</b>' and '<b>error</b>' are internal to the 'ProgressBar'. From the outside, both are a rejection ('reject').</b><br/>
+					<br/>
+				</td>
+			</tr>
+			
+			<tr>
+				<td class="btnsContainer" style="vertical-align:middle;height:30px;"> 
+					<button onclick="btnR1AStart_onclick(this)"style="">start</button>
+					
+				</td>
+				<td colspan="2" id="tdR1AC3"> 
+					<span style="padding-left: 6px;display:inline-block; width: 130px;">&nbsp;</span>
+				</td>			
+			</tr>
+		</table>
+	</fieldset>	
+	
+	
+
+	
+	<!--Section 1B  -->
+	<fieldset>
+		<legend>
+			<span class="SectionLabel">Section 1B :</span><span class="SectionTitle">'PromiseGUI':
+			<span style="font-weight:normal;">how it works.</span>
+			</span>
+		</legend>
+		<table border="0" style="width:100%;">
+		
+			<tr>
+				<td class="msgContainer" colspan="3"> 
+					This section shows the <b>'PromiseGUI'</b> and how it works.
+					<br/>			
+				</td>
+			</tr>
+			
+
+			<tr>
+				<td></td>
+				<td id="tdR1BC2" style="text-align:center;"> 
+					<table class="demo" align="center"  style="">
+						<tr>
+							<!-- PromiseGUI place holder -->
+							<td></td>
+						</tr>
+					</table>
+					
+				</td>	
+				<td></td>				
+			</tr>	
+
+			<tr>
+				<td class="msgContainer" colspan="3"> 
+					It's <b>a model for the entity in point 3)</b><br/>
+					The 'PromiseGUI' exposes 4 functions, as described at point 3), that the 'Promise' can call:<br/>
+				</td>
+			</tr>
+	
+			<tr>
+				<td class="btnsContainer" > 
+					<button onclick="btnR1BResolved_onclick(this)">resolved</button>
+					<button onclick="btnR1BRejected_onclick(this)">rejected</button>
+					<button onclick="btnR1BFulfilled_onclick(this)">fulfilled</button>
+					<button onclick="btnR1BCatched_onclick(this)">catched</button>					
+				</td>
+				<td class="pbsContainer" id=""> 
+				</td>
+				<td class="msgContainer"> 
+					
+					<button onclick="btnR1BReset_onclick(this)">reset</button><br/>
+					
+				</td>							
+				
+			</tr>
+			
+			<tr>
+				<td class="msgContainer" colspan="3"> 
+					
+				</td>
+			</tr>
+		
+		</table>
+	</fieldset>
+	
+
+
+		<!--Note  -->
+	<fieldset >
+		<legend>Note</legend>
+			<p class="note">
+				In the real world:<br/>
+				<ul>
+				<li>
+					'ProgressBar' can be, for exmple, a model for an asynchronous call to an AJAX API. The call can 'resolve' or reject'.
+				</li>
+				<li>
+					'PromiseGUI' can be, for exmple, an object that adapts the DOM's layout based on the function called by 'Promise'.
+				</li>
+				<ul>
+			</p>	
+	</fieldset>	
+		
+	
+	
+	<!--Section 2A  -->	
+	<fieldset>
+		<legend>
+		<span class="SectionLabel">Section 2A:</span><span class="SectionTitle">'Promise': <span style="font-weight:normal;">for dummies.</span>
+		</legend>
+		<table border="0" >
+		
+			<tr>
+				<td class="msgContainer" colspan="3"> 
+					The easiest way to use the 'Promise'<br/>
+				</td>
+			</tr>
+		
+			<tr>
+				<td class="btnsContainer" > 
+					<button onclick="btnR2AThen_onclick(this)">then</button>
+				</td>
+				<td class="pbsContainer" id="tdR2AC2"> 
+					<table class="demo"cellspacing="0"></table>
+				</td>
+				<td class="msgContainer"> 
+					This is a basic, yet complete, configuration of the 'Promise' using all its features.
+				</td>							
+				
+			</tr>
+			
+			<tr>
+				<td class="msgContainer" colspan="3"> 
+					What is missed is the exception management, and the 'ProgressBar' is configured to not throw any exception.
+					<br/>
+					
+				</td>
+			</tr>
+		</table>
+	</fieldset>
+	
+	
+	
+	<!--Note  -->
+	<fieldset >
+		<legend>Note</legend>
+			<p class="note">
+				To properly control a 'Promise' it's important to know how it reacts to an exception. 'Promise' is a docile tool, the only real attention is needed during the instantiation: <span style="color:blue;font-weight:bold;">new </span>Promise(<span style="color:blue;font-weight:bold;">function </span>(resolve, reject) {...});
+			</p>	
+
+	</fieldset>	
+	
+		
+	<!--Section 2B  -->
+	<fieldset>
+		<legend>
+		<span class="SectionLabel">Section 2B:</span><span class="SectionTitle">Promise basics: <span style="font-weight:normal;">dealing with exceptions.</span>
+		</legend>
+		<table border="0" >
+		
+		
+			<tr>
+				<td class="msgContainer" colspan="3"> 
+					Exception when instantiating a new 'Promise'.
+				</td>
+			</tr>	
+			
+			<tr>
+
+				<td class="btnsContainer" > 					
+					<button onclick="btnR2BStart_onclick(this)">start</button>	
+					<button onclick="btnR2BNewPromise_onclick(this)">new Promise</button>			
+				</td>
+				<td class="pbsContainer" id="tdR2BC2"> 					
+					<table class="demo"cellspacing="0"></table>
+				</td>
+				<td class="msgContainer"> 
+					try some shot and then take a look at the code, please.
+				</td>							
+				
+			</tr>
+			
+		
+			<tr>
+				<td class="msgContainer" colspan="3"> 
+					The 'signature' of '<span style="color:black;">resolve</span>' & '<span style="color:black;">reject</span>' accepts one parameter, of any kind. But, if an uncaught exception occurs  when is running the code contained in <span style="color:blue;">new</span> <span style="color:black;">Promise(...)</span>, 'Promise' will call 'reject' passing an 'Error' object.<br/>
+					That means, <span style="color:red;">your code can receive something different from what it expects</span>.
+				</td>
+			</tr>				
+		</table>
+	</fieldset>	
+	
+	
+	
+		
+	<!--Section 2C  -->
+	<fieldset>
+		<legend><span class="SectionLabel">Section 2C:</span><span class="SectionTitle">Promise basics: <span style="font-weight:normal;">dealing with exceptions.</span></legend>
+		<table border="0" >
+			<tr>
+				<td class="msgContainer" colspan="3"> 
+					Exception when running '<span style="color:black;">resolve</span>' & '<span style="color:black;">reject</span>'
+				</td>
+			</tr>
+		
+			<tr>
+	
+				<td class="btnsContainer" >					
+					
+					<button onclick="btnR2CResolve_onclick(this)">resolve</button>
+					<button onclick="btnR2CReject_onclick(this)">reject</button>					
+				</td>
+				<td class="pbsContainer" id="tdR2CC2"> 
+					<table class="demo"cellspacing="0"></table>
+				</td>
+				<td class="msgContainer"> 
+					try some shot and then take a look at the code, please.
+				</td>							
+				
+			</tr>
+		
+			<tr>
+				<td class="msgContainer" colspan="3"> 
+					Exceptions in the functions '<span style="color:black;">resolve</span>' & '<span style="color:black;">reject </span> aren't so dramatic. Any uncaught error will call 'catch'. (using try-catch session is mainly an option).
+				</td>
+			</tr>	
+		</table>
+	</fieldset>	
+		
+		
+	<!--Section 2D  -->
+	<fieldset>
+		<legend><span class="SectionLabel">Section 2D:</span><span class="SectionTitle">Promise basics: <span style="font-weight:normal;">dealing with exceptions.</span></legend>
+		<table border="0" >
+		
+			<tr>
+				<td class="msgContainer" colspan="3"> 
+					Exception when running '<span style="color:black;">finally</span>'
+				</td>
+			</tr>
+			
+			<tr>
+				<td class="btnsContainer" >					
+					<button onclick="btnR2DFinally_onclick(this)">finally</button>									
+				</td>
+				<td class="pbsContainer" id="tdR2DC2"> 
+					<table class="demo"cellspacing="0"></table>
+				</td>
+				<td class="msgContainer"> 
+					try some shot and then take a look at the code, please.
+				</td>							
+				
+			</tr>
+			<tr>
+				<td class="msgContainer" id="tdMsgS2D" colspan="3"> 
+					<p>
+					Regarding the function 'finally', an exception will redirect the flow to the function 'catch'.<br/>
+					<br/>
+					An exception can occur  also in the 'catch' function (why not?). To cope with this event, you can choose between two strategies:<br/>
+					* A 'try-catch' session.<br/>
+					* Chaining the exception to another 'catch' handler, but this... is another story :)
+					</p>
+				</td>							
+				
+			</tr>
+		</table>
+	</fieldset>	
+
+		
+	<!--Note  -->
+	<fieldset >
+		<legend>Note</legend>
+			<p class="note MIB" style="border:solid 1px transparent;padding-left:45px;background-position: 10px 15px;">
+				<br/>
+				 Now it's time to put things together...<br/>
+			</p>	
+
+	</fieldset>		
+
+	
+	<!--Section 3A  -->
+	<fieldset>
+		<legend>
+		<span class="SectionLabel">Section 3A:</span><span class="SectionTitle">'Promise':<span style="font-weight:normal;"> the revenge of dummies.</span></span>
+		</legend>
+		
+		<table border="0" >
+		
+			<tr>
+				<td class="msgContainer" colspan="3"> 
+					Again, a 'Promise' in the easiest way. This time fully configurated against every possible exception: <b>practically unstoppable</b> 
+				</td>
+			</tr>
+		
+			<tr>
+				<td class="btnsContainer" > 
+					<button onclick="btnR3AThen_onclick(this)">then</button>
+				</td>
+				<td class="pbsContainer" id="tdR3AC2"> 					
+					<div id="tdR3AC2" class="scroll" style="">
+						<table class="demo"cellspacing="0"></table>
+					</div>				
+				</td>
+				<td class="msgContainer"> 
+
+				</td>							
+				
+			</tr>
+		</table>
+	</fieldset>
+
+
+	<!--Note  -->	
+	<fieldset >
+		<legend>Note</legend>
+			<p class="note">
+				Nothing special happens until now. What we did with 'Promise' can be easily implemented by any developer. Now it's time to show 'Promise' in all its glory.
+			</p>	
+
+	</fieldset>		
+		
+	<!--Section 4A  -->
+	<fieldset style="min-height:70px;">
+		<legend>
+			<span class="SectionLabel">Section 4A:</span><span class="SectionTitle">Promise.all<span style="font-weight:normal;">.</span></span>
+		</legend>
+		<table border="0" >
+		
+				
+			<tr>
+				<td class="msgContainer" id="msgContainer1" colspan="3"> 
+					&nbsp;
+				</td>
+			</tr>
+		
+			<tr>
+				<td class="btnsContainer scroll"> 
+					<button onclick="btnR4AAll_onclick(this)">all</button>
+				</td>
+				<td class="pbsContainer" > <!-- style="border: solid 10px red;" -->
+					<div  id="tdR4AC2" class="scroll" style="">
+						<table class="demo"cellspacing="0"></table>
+					</div>
+				</td>
+				<td class="msgContainer"> 
+					<div style="margin-bottom:10px;">The function 'Promise.all', resolves (is successfully) only if all the progressBar resolves.<br/>
+
+					rejects (fails) as soon any of the progressBar rejects.</div>
+					<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all" target="_blank" style="margin-bottom:10px;">Promise.all() - JavaScript | MDN</a>
+				</td>
+			</tr>
+			
+							
+			<tr>
+				<td class="msgContainer" id="msgContainer1" colspan="3"> 
+					<b>Note</b>: When a 'ProgressBar' fails, the border color of the other 'ProgressBar' can be not set: <span style="color:red;">information lost</span>. <span style="font-size:0.9em;font-style: italic;">(See section 1B.)</span>
+					<br/>
+				</td>
+			</tr>
+			
+		</table>
+	</fieldset>
+		
+	<!--Section 4A Bis  -->
+	<fieldset style="min-height:70px;">
+		<legend>
+			<span class="SectionLabel">Section 4A Bis:</span><span class="SectionTitle">Promise.all<span style="font-weight:normal;"> (extended).</span></span>
+		</legend>
+		<table border="0" style="width:100%;">
+		
+				
+			<tr>
+				<td class="msgContainer" id="msgContainer1" colspan="3"> 
+					The function 'reject' ('rejectAll' in this example) receives only the 'ProgressBar' that rejected. What about the others?<br/>
+					This section suggests a possible solution.<br/>
+					<br/>
+				</td>
+			</tr>
+		
+			<tr>
+				<td class="btnsContainer scroll"> 
+					<button onclick="btnR4ABisAll_onclick(this)">all</button>
+				</td>
+				<td class="pbsContainer" colspan="2">
+					<div  id="tdR4ABisC2" class="scroll" style="width:100%;border:solid 1px transparent;">
+						<table class="demo"cellspacing="0"></table>
+					</div>
+				</td>
+
+			</tr>
+			
+							
+			<tr>
+				<td class="msgContainer" id="msgContainer1" colspan="3"> 
+					Now, when one of the 'ProgressBar' rejects, it is possible to show the 'state' of the other 'ProgressBar'.<br/>
+					<span style="font-size:0.9em;font-style: italic;">(every graphical element is properly colored);</span>
+				</td>
+			</tr>			
+			
+		</table>
+	</fieldset>
+
+		
+	<!--Section 4B  -->
+	<fieldset style="min-height:70px;">
+		<legend>
+			<span class="SectionLabel">Section 4B:</span><span class="SectionTitle">Promise.allSettled<span style="font-weight:normal;">. <span style="font-size:0.9em;font-style: italic;"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all#Browser_compatibility" target="_blank">(browser compatibility)</a></span></span></span>
+		</legend>
+		<table border="0" >
+		
+				
+			<tr>
+				<td class="msgContainer" id="msgContainer1" colspan="3"> 
+					&nbsp;
+				</td>
+			</tr>
+		
+			<tr>
+				<td class="btnsContainer scroll"> 
+					<button onclick="btnR4BAllSettled_onclick(this)">allSettled</button>
+				</td>
+				<td class="pbsContainer" > <!-- style="border: solid 10px red;" -->
+					<div  id="tdR4BC2" class="scroll" style="">
+						<table class="demo"cellspacing="0"></table>
+					</div>
+				</td>
+				<td class="msgContainer"> 
+					<div style="margin-bottom:10px;">
+						The function 'Promise.allSettled', waits till all the 'ProgressBars' complete. Then resolves.<br/>
+						<span style="font-size:0.9em;font-style: italic;">('allSettled' rejects only if a 'catch' occurs.)</span>
+					</div>
+					<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled" target="_blank" style="margin-bottom:10px;">Promise.allSettled() - JavaScript | MDN</a>
+				</td>
+			</tr>
+		</table>
+	</fieldset>
+	
+		
+	<!--Section 4C  -->
+	<fieldset style="min-height:70px;">
+		<legend><span class="SectionLabel">Section 4C:</span><span class="SectionTitle">Promise.race</span></legend>
+		<table border="0" >
+			<tr>
+				<td class="btnsContainer"> 
+					<button onclick="btnR4CRace_onclick(this)">race</button>
+				</td>
+				<td class="pbsContainer" id="tdR4CC2"> 
+					<table class="demo"cellspacing="0"></table>
+				</td>
+				<td class="msgContainer"> 
+					<div style="margin-bottom:10px;">The function 'race', 'resolve' (is successfull) as soon a 'ProgressBar' 'resolve'. 'reject' as soon any of the 'ProgressBar' 'reject'.</div>
+					<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race" target="_blank" style="margin-bottom:10px;">Promise.race() - JavaScript | MDN</a>
+				</td>
+			</tr>
+			
+			
+		</table>
+	</fieldset>
+
+	
+		
+	<!--Section 5A  -->
+	<fieldset style="min-height:230px;">
+		<legend><span class="SectionLabel">Section 5A:</span><span class="SectionTitle">Promise synchronous.</span></legend>
+		<table border="0" >
+		
+		
+			<tr>
+				<td class="msgContainer" id="msgContainer1" colspan="3"> 
+					'Promise' can force an Asynchronous process to become Synchronous!
+					<br/>
+				</td>
+			</tr>
+			<tr>
+				<td class="btnsContainer"> 
+					<button onclick="btnR5AStart_onclick(this)">start</button>
+				</td>
+				<td class="pbsContainer" id="tdR5AC2"> 
+					<div  id="tdR5AC2" class="scroll" style="">
+						<table class="demo"cellspacing="0"></table>
+					</div>
+				</td>
+				<td class="msgContainer"> 
+				</td>
+			</tr>
+			
+			
+			<tr>
+				<td class="msgContainer" id="msgContainer1" colspan="3"> 
+					Using '<span style="color:blue">async/await</span>' 'Promise' can transform an <span style="co lor:red;font-weight:bold;">A</span>synchronous process in a <span style="co lor:red;font-weight:bold;">S</span>ynchronous.<br/>
+					<br/>
+					This configuration does not need a master 'Promise' that controls the other 'Promises'
+					<br/>
+				</td>
+			</tr>
+		</table>
+	</fieldset>
+	
+	
+
+		
+	<!--Note  -->
+	<fieldset >
+		<legend>Note</legend>
+			<p class="note" style="border:solid 1px transparent;padding-left:45px;background-position: 10px 15px;">
+				Now some, more in-depth, consideration...<br/>
+				<span style="font-size:0.9em;font-style: italic;">(When the going gets tough, the tough get going);</span>
+			</p>	
+
+	</fieldset>		
+
+
+	
+	
+
+	<fieldset style="min-height:170px;">
+		<legend>
+			<span class="SectionLabel">Section 6A:</span><span class="SectionTitle">Single thread<span style="font-weight:normal;"> a demostration.</span></span>		
+		
+		</legend>
+				
+			<table border="0" >
+		
+			<tr>
+				<td class="msgContainer" id="msgContainer1" colspan="3"> 
+					The example shows that, regardless of any time planning, operated by 'setInterval', every job (the function 'loop') is executed only after the previous is completed <span style="font-size:0.9em;font-style: italic;">(Only when the interval of 'setInterval' is long enough, the schedule will be respected.)</span>
+					<br/>
+					In other words, the javascript 'engine' works on a single thread: hence, it does not allow <b>Concurrency</b>.<br/>
+					<span style="font-size:0.9em;font-style: italic;">(Two or more process cannot run at the same time.)</span>
+					<br/>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<canvas id="canvas"  style="border:1px solid #999;width:100%; height:50px;background-color:#FFFFFF"><br/>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<strong>Note:</strong> The canvas tag is not supported in Internet Explorer 8 and earlier versions.
+			</tr>
+		
+		
+			<tr>
+				<td class="btnsContainer"> 
+					<button onclick="btnR6ALoops100_onClick(this)">Loops 100 [ms]</button>
+					<button onclick="btnR6ALoops150_onClick(this)">Loops 150 [ms]</button>
+					<button onclick="btnR6ALoops200_onClick(this)">Loops 200 [ms]</button>
+					<button onclick="btnR6ALoops250_onClick(this)">Loops 250 [ms]</button>
+					<button onclick="btnR6ALoops300_onClick(this)">Loops 300 [ms]</button>
+				</td>
+				<td class="pbsContainer" id="tdR6AC2" collspan="2"> 
+					<div style="height:300px;overflow-x:hidden;overflow-y: auto;width:450px;">
+						<ul id="ulR6A" style="width:370px;">
+
+						</ul>
+					</div>		
+				</td>
+			</tr>
+						
+		</table>
+	</fieldset>
+	
+	
+	<fieldset style="min-height:170px;">
+		<legend>
+			<span class="SectionLabel">Section 6B:</span><span class="SectionTitle">ProgressBar<span style="font-weight:normal;"> Synchronous/Asynchronous.</span></span>		
+		
+		</legend>
+		<table border="0" >
+		
+			<tr>
+				<td class="msgContainer" id="msgContainer1" colspan="3"> 
+					'ProgessBar' can  also run as a <span style="color:red;font-weight:normal;">synchronous </span> process. This session shows the different behavior, due to the fact that the javascript engine, runs on a single thread.
+					<br/>
+					<br/>
+					
+				</td>
+			</tr>
+		
+		
+			<tr>
+				<td class="btnsContainer"> 
+					<button onclick="btnR6BStartA_onclick(this)">start (Async)</button>
+					<button onclick="btnR6BStartS_onclick(this)">start (Sync)</button>
+				</td>
+				<td class="pbsContainer" collspan="2"> 
+					<div  id="tdR6BC2" class="scroll" style="width:100%;border:solid 1px transparent;">
+						<table class="demo"cellspacing="0"></table>
+					</div>				
+				</td>
+			</tr>
+			
+		
+			<tr>
+				<td class="msgContainer" id="msgContainer1" colspan="3"> 
+					When 'ProgessBar' is <b>synchronous</b>, each item completes its job <b>always in the same order</b> and the page freezes.
+					<br/>
+				</td>
+			</tr>			
+		</table>
+	</fieldset>
+	
+		
+
+	
+	
+		
+	<!--Note  -->
+	<fieldset >
+			<p class="note" style="border:solid 1px transparent;padding-left:45px;background-position: 10px 15px;">				
+				How this affects 'Promise'?
+			</p>	
+
+	</fieldset>		
+	
+
+	<fieldset style="min-height:170px;">
+		<legend>
+			<span class="SectionLabel">Section 7A:</span><span class="SectionTitle">Promise.then<span style="font-weight:normal;"> Synchronous/Asynchronous.</span></span>		
+		
+		</legend>
+		<table border="0" >
+		
+		
+			<tr>
+				<td class="msgContainer" id="msgContainer1" colspan="3"> 
+					A single 'Promise', is totally indifferent if the process it controls is synchronous or asynchronous.
+					<br/>
+				</td>
+			</tr>
+		
+		
+			<tr>
+				<td class="btnsContainer"> 
+					<button onclick="btnR7AThenA_onclick(this)">then (Async)</button>
+					<button onclick="btnR7AThenS_onclick(this)">then (Sync)</button>
+				</td>
+				<td class="pbsContainer" collspan="2"> 
+					<div  id="tdR7AC2" class="scroll" style="width:100%;border:solid 1px transparent;">
+						<table class="demo"cellspacing="0"></table>
+					</div>				
+				</td>
+			</tr>
+			
+			
+		</table>
+	</fieldset>	
+
+
+		
+	<!--Section 7B  -->
+	<fieldset style="min-height:70px;">
+		<legend>
+			<span class="SectionLabel">Section 7B:</span><span class="SectionTitle">Promise.all <span style="font-weight:normal;">three steps.</span></span>
+		</legend>
+		<table border="0" >		
+			<tr>
+				<td class="msgContainer" id="msgContainer1" colspan="3"> 
+					Things change for the function 'Promise.all'. Code demonstrates that the function MUST be called before a significative event occurs. <span style="font-size:0.9em;font-style: italic;">(Before all the function 'start' complete with 'resolve' or before the first 'reject' occurs.)</span><br/>	
+					<br/>
+					That means: <b>'Promise.all' requires an asynchronous process.</b><br/>
+					<br/>
+				</td>
+			</tr>
+			<tr>
+				<td class="btnsContainer"> 
+					<button id="btnR7BNewPromise" onclick="btnR7BNewPromise_onclick(this)">new Promise</button>
+					<br/>
+					<br/>
+					<button id="btnR7BAll" onclick="btnR7BAll_onclick(this)">all</button>
+					<br/>
+					<br/>
+					<button id="btnR7BThen" onclick="btnR7BThen_onclick(this)">then</button>				
+				</td>
+				<td class="pbsContainer" id="tdR7BC2" colspan="2"> 
+					<table class="demo"cellspacing="0"></table>
+				</td>
+
+			</tr>
+			<tr>
+				<td class="msgContainer" id="msgContainer1" colspan="3"> 
+					
+				</td>
+			</tr>
+		</table>
+	</fieldset>	
+	
+	
+	
+	<!--Section 7C  -->
+	<fieldset style="min-height:70px;">
+		<legend>
+			<span class="SectionLabel">Section 7C:</span><span class="SectionTitle">Promise.race <span style="font-weight:normal;">three steps.</span></span>
+		</legend>
+		<table border="0" >		
+			<tr>
+				<td class="msgContainer" id="msgContainer1" colspan="3"> 
+					The same, for the function 'Promise.race'. Code demonstrates that the function MUST be called before a significative event occurs. <span style="font-size:0.9em;font-style: italic;">(Before any function 'start' fulfills with 'resolve' or 'reject'.)</span>
+					<br/>
+				</td>
+			</tr>
+			<tr>
+				<td class="btnsContainer"> 
+					<button id="btnR7CNewPromise" onclick="btnR7CNewPromise_onclick(this)">new Promise</button>
+					<br/>
+					<br/>
+					<button id="btnR7CRace"  onclick="btnR7CRace_onclick(this)">race</button>
+					<br/>
+					<br/>
+					<button id="btnR7CThen" onclick="btnR7CThen_onclick(this)">then</button>				
+				</td>
+				<td class="pbsContainer" id="tdR7CC2" colspan="2"> 
+					<table class="demo"cellspacing="0"></table>
+				</td>
+
+			</tr>
+			<tr>
+				<td class="msgContainer" id="msgContainer1" colspan="3"> 
+					The 'ProgressBar' number 1 (assigned randomly) should be always selected if things run correctly.
+				</td>
+			</tr>
+		</table>
+	</fieldset>
+	
+		
+		
+	<!--Note  -->
+	<fieldset >
+		<legend>Note</legend>
+			<p class="note" style="border:solid 1px transparent;padding-left:45px;background-position: 10px 15px;">				
+				Being, javascript, a single thread language, gives a huge advantage to the developer working with 'Promise'. Because concurrency isn't allowed no special attention is needed writing the function 'start'<br/><br/>
+				In fact, also if a 'Promise' is controlling any number of them, only one at the time is running. So, when a function 'start' gets its slot of 'CPU Time', it can do what it wants, without worry about the other functions. And if the function 'start' decides to call 'resolve/reject' it has all the time it wants to set its state in the best way, before notifying the 'Promise', and without worry that another process can call 'Promise' leaving it in a not proper state.  
+				<br/>
+			</p>	
+
+	</fieldset>	
+	
+	<fieldset >
+			<p class="note" style="border:solid 1px transparent;padding-left:45px;background-position: 10px 15px;">				
+				that's all. <span style="font-size:0.9em;font-style: italic;">(chaining is out of the scope of this tutorial.)</span><br/>
+				<br/>
+				Hoping this page helped in somehow.<br/><br/>
+				Bye :)<br/>
+				
+			</p>	
+
+	</fieldset>	
+	
+
+
+</div>	
+
+
+</body>
+
+
+</html>
+
+<script src="tools.js"></script>
+<script src="console.js"></script>
+
+
+<!-- ===================================== -->
+
+<script src="R1A.js"></script>
+<script src="R1B.js"></script>
+<script src="R2A.js"></script>
+<script src="R2B.js"></script>
+<script src="R2C.js"></script>
+<script src="R2D.js"></script>
+<script src="R3A.js"></script>
+<script src="R4A.js"></script>
+<script src="R4ABis.js"></script>
+<script src="R4B.js"></script>
+<script src="R4C.js"></script>
+<script src="R5A.js"></script>
+<script src="R6A.js"></script>
+<script src="R6B.js"></script>
+<script src="R7A.js"></script>
+<script src="R7B.js"></script>
+<script src="R7C.js"></script>
+<!-- ===================================== -->
+
+
