@@ -253,7 +253,7 @@
 		<legend><span class="SectionLabel">Introduction</span></legend>
 			<h1 style="font-weight:normal;margin-bottom:20px;">The <b>Promise</b> object</h1>	
 			<p class="note">
-			Working with the 'Promise' object, involves these concepts:
+			Working with the 'Promise' object involves these concepts:
 			<ul style="margin-top:0px;">
 				<li>1) - One or more 'entities'. Each one with its own task and, once completed, each one should call one of:
 					<ul>
@@ -262,7 +262,7 @@
 					</ul>
 				</li>		
 
-				<li style="margin-top:15px;">2) A '<b>Promise</b>' that provides two callbacks: 'resolve' and 'reject', to the 'entity at point 1). The 'Promise' exposes also four 'events' (not exacltly events) for the 'entity' at point 3) to consume.
+				<li style="margin-top:15px;">2) A '<b>Promise</b>' that provides two callbacks: 'resolve' and 'reject', to the 'entity at point 1). The 'Promise' exposes also four 'events' (not exactly events) for the 'entity' at point 3) to consume.
 				</li>
 
 				<li style="margin-top:15px;">3) An 'entity' that provides 4 public functions to call:
@@ -287,7 +287,7 @@
 	<!--Note  -->
 	<fieldset>
 			<p class="note">
-				I'm not a mathematician. Please, bear with me for the misuse of technical terms like object; event, entity and so on...
+				I'm not a mathematician. Please, bear with me for the misuse of technical terms like 'object'; 'event', 'entity' and so on...
 			</p>
 	</fieldset>	
 
@@ -322,7 +322,7 @@
 					The progress bar is <b>a model</b> for the 'entity' at point '1)'. It exposes a function named: '<b>start</b>', designed to be used by a 'Promise'. 'Start' accepts 2 callbacks: 'resolve', 'reject' to send back a 'messages' to the 'Promise' object.<br/>
 					'Resolve' accepts one parameter used by 'start' to send back data to the 'Promise' object.<br/>
 					<br/>
-					The 'Progress bar' implements an asyncronous process that runs for a random amount of time and ends up with one state chosen randomly between <b>4 internal states</b>.<br/>
+					The 'Progress bar' implements an asynchronous process that runs for a random amount of time and ends up with one state chosen randomly between <b>4 internal states</b>.<br/>
 					<br/>
 					
 					
@@ -379,7 +379,7 @@
 							
 			<tr>
 				<td class="msgContainer" id="msgContainer1" colspan="3"> 
-					One example could be: <span style="font-size:0.9em;font-style: italic;">A company (The 'Promise') calls you (the 'Start' function) for a mission, and gives you a smartphone (the callback 'resolve'). Your task is to buy some stuffs. When done you must call back your company, notifying that you succeed (the message) and the price of stuffs (the data).</span>
+					One example could be: <span style="font-size:0.9em;font-style: italic;">A company (The 'Promise') calls you (the 'Start' function) for a mission, and gives you a smartphone (the callback 'resolve'). Your task is to buy some stuff. When done you must call back your company, notifying that you succeed (the message) and the price of stuffs (the data).</span>
 				</td>
 			</tr>	
 		</table>
@@ -400,7 +400,7 @@
 	<!--Section 1B  -->
 	<fieldset>
 		<legend>
-			<span class="SectionLabel">Section 1B :</span>
+			<span class="SectionLabel">Section 1B:</span>
 			<span class="SectionTitle">'PromiseGUI':<span style="font-weight:normal;">how it works.</span></span>
 		</legend>
 		<table border="0" style="width:100%;">
@@ -429,7 +429,7 @@
 
 			<tr>
 				<td class="msgContainer" colspan="3"> 
-					The 'PromiseGUI' exposes 4 functions', each one with a different graphical representation:<br/>
+					The 'PromiseGUI' exposes 4 functions, each one with a different graphical representation:<br/>
 				</td>
 			</tr>
 	
@@ -472,7 +472,7 @@
 					'ProgressBar' could be, for example, an asynchronous call to an AJAX API that can only 'resolve' or reject'.
 				</li>
 				<li>
-					'PromiseGUI' could be, for example, a process that adapts the DOM's layout based on the function called by 'Promise'.
+					'PromiseGUI' could be, for example, a process that adapts the DOM's layout based on the function called by the 'Promise'.
 				</li>
 				<ul>
 			</p>	
@@ -490,7 +490,7 @@
 			<tr>
 				<td class="msgContainer" colspan="3"> 
 					Now we are ready to use the 'Promise' object in the easiest way: a very basic, yet complete, configuration of the 'Promise' using the features just described.<br/>
-					<span style="font-size:0.9em;font-style: italic;">(try some shot and then hit F12 and take a look at the code, plese.)</span>
+					<span style="font-size:0.9em;font-style: italic;">(try some shot and then hit F12 and take a look at the code, please.)</span>
 				</td>
 			</tr>
 		
@@ -533,7 +533,7 @@
 	
 	<fieldset>
 			<p class="note">
-				The next sections will analyze the effect of an exception occourring in different places.
+				The next sections will analyze the effect of an exception occurring in different places.
 			</p>
 	</fieldset>	
 	
@@ -542,16 +542,16 @@
 	<!--Section 2B  -->
 	<fieldset>
 		<legend>
-		<span class="SectionLabel">Section 2B:</span><span class="SectionTitle">Promise basics: <span style="font-weight:normal;">dealing with exceptions.</span>
+		<span class="SectionLabel">Section 2B: </span><span class="SectionTitle">Promise basics: <span style="font-weight:normal;">dealing with exceptions.</span>
 		</legend>
 		<table border="0" >
 		
 		
 			<tr>
 				<td class="msgContainer" colspan="3"> 
-					Exception occuring during the instantiation of a new 'Promise'. It is in sync with the 'main flow', that menas this exception can be caught by a 'try-catch' session. Asynchronous exception are 'silent',to the main flow: that's why the calback 'reject' is provided.
+					Exception occurring during the instantiation of a new 'Promise'. It is in sync with the 'main flow', that means this exception can be caught by a 'try-catch' session. Asynchronous exception are 'silent'. That's why the calback 'reject' is provided.
 					<br/>
-					<span style="font-size:0.9em;font-style: italic;">(Hit F12 and take a look at the code, plese.)</span>
+					<span style="font-size:0.9em;font-style: italic;">(Hit F12 and take a look at the code, please.)</span>
 				</td>
 			</tr>
 			<tr>
@@ -573,7 +573,7 @@
 			<tr>
 				<td class="msgContainer" colspan="3"> 
 					That means, <span style="color:red;">your code could receive something different from what it expects</span>.
-					The 'signature' of '<span style="color:black;">resolve</span>' & '<span style="color:black;">reject</span>' accepts one parameter, of any kind. But, in case of an uncought synchronous exception, 'Promise' will call (internally) 'reject', passing an 'Error' object.<br/>
+					The 'signature' of '<span style="color:black;">resolve</span>' & '<span style="color:black;">reject</span>' accepts one parameter, of any kind. But, in case of an uncaught synchronous exception, 'Promise' will call (internally) 'reject', passing an 'Error' object.<br/>
 				</td>
 			</tr>				
 		</table>
@@ -584,13 +584,13 @@
 		
 	<!--Section 2C  -->
 	<fieldset>
-		<legend><span class="SectionLabel">Section 2C:</span><span class="SectionTitle">Promise basics: <span style="font-weight:normal;">dealing with exceptions.</span></legend>
+		<legend><span class="SectionLabel">Section 2C: </span><span class="SectionTitle">Promise basics: <span style="font-weight:normal;">dealing with exceptions.</span></legend>
 		<table border="0" >
 			<tr>
 				<td class="msgContainer" colspan="3"> 
 					The Exception occurs when '<span style="color:black;">resolve</span>' or '<span style="color:black;">reject</span>' are running.
 					<br/>
-					<span style="font-size:0.9em;font-style: italic;">(try some shot and then hit F12 and take a look at the code, plese.)</span>
+					<span style="font-size:0.9em;font-style: italic;">(try some shot and then hit F12 and take a look at the code, please.)</span>
 				</td>
 			</tr>
 		
@@ -620,14 +620,14 @@
 		
 	<!--Section 2D  -->
 	<fieldset>
-		<legend><span class="SectionLabel">Section 2D:</span><span class="SectionTitle">Promise basics: <span style="font-weight:normal;">dealing with exceptions.</span></legend>
+		<legend><span class="SectionLabel">Section 2D: </span><span class="SectionTitle">Promise basics: <span style="font-weight:normal;">dealing with exceptions.</span></legend>
 		<table border="0" >
 		
 			<tr>
 				<td class="msgContainer" colspan="3"> 
-					The Exception occours when running '<span style="color:black;">finally</span>'
+					The Exception occurs when running '<span style="color:black;">finally</span>'
 					<br/>
-					<span style="font-size:0.9em;font-style: italic;">(try some shot and then hit F12 and take a look at the code, plese.)</span>
+					<span style="font-size:0.9em;font-style: italic;">(try some shot and then hit F12 and take a look at the code, please.)</span>
 				</td>
 			</tr>
 			
@@ -705,7 +705,7 @@
 	<fieldset >
 		<legend>Note</legend>
 			<p class="note">
-				Nothing so special has happened so far. What we haved done with 'Promise' can be easily implemented by any developer.<br/>
+				Nothing so special has happened so far. What we have done with 'Promise' can be easily implemented by any developer.<br/>
 				<br/>
 				Now it's time to show 'Promise' in all its glory.<br/>
 				<br/>
@@ -718,7 +718,7 @@
 	
 	<fieldset>
 			<p class="note">
-				In the following sections there will be a 'Master-Promise' and many 'Promises'. The 'MasterPromise' will fail or succed, based its own configuration and what happen to itsS promises.
+				In the following sections, there will be a 'Master-Promise' and many 'Promises'. The 'MasterPromise' will fail or succeed, based its own configuration and what happens to its promises.
 			</p>
 	</fieldset>	
 		
@@ -756,7 +756,7 @@
 			<tr>
 				<td class="msgContainer" id="msgContainer1" colspan="3"> 
 					With the function '<b>Promise.all</b>', the 'Master-Promise':<br/>
-					- <b>resolves</b> (is successfully) only when all its 'promises' resolve.<br/>
+					- <b>resolves</b> (is successful) only when all its 'promises' resolve.<br/>
 					- <b>Rejects</b> (fails) as soon any of the 'promises' rejects.<br/>
 				</td>
 			</tr>
@@ -923,14 +923,14 @@
 			<tr>
 				<td class="msgContainer" id="msgContainer1" colspan="3"> 
 					With '<b>Promise.any</b>', the 'Master-Promise':<br/>
-					- <b>resolves</b> (is successfully) as soon any of the 'promises' resolves.<br/>
+					- <b>resolves</b> (is successful) as soon any of the 'promises' resolve.<br/>
 					- <b>Rejects</b> (fails) when all 'promises' rejects.<br/>
 				</td>
 			</tr>
 							
 			<tr>
 				<td class="msgContainer" id="msgContainer1" colspan="3"> 
-					<b>Note</b>: Only the succeding progressBar can set properly its own ProgressGUI. The other progressBar are not able to show its own state.
+					<b>Note</b>: Only the succeeding progressBar can set properly its own ProgressGUI. The other progressBars are not able to show its own state.
 					<br/>
 				</td>
 			</tr>
@@ -972,7 +972,7 @@
 							
 			<tr>
 				<td class="msgContainer" id="msgContainer1" colspan="3"> 
-					Now, every 'Promise' that fullfills (resolves or rejects) it is able to set its own 'PromiseGUI.<br/>
+					Now, every 'Promise' that fullfils (resolves or rejects) it is able to set its own 'PromiseGUI.<br/>
 					<span style="font-size:0.9em;font-style: italic;">(every graphical element is properly colored);</span>
 				</td>
 			</tr>			
@@ -1025,8 +1025,8 @@
 			<p class="note" style="border:solid 1px transparent;padding-left:45px;background-position: 10px 15px;">
 				Now some, more in-depth, consideration regarding:<br/>
 				1) <b>concurrency</b> and <b>threading</b><br/>
-				Starting from section 4A, a single 'Master-Promise' controls many, indipendent and simultaneous proceses. This is not a problem under javascript.<br/>
-				In fact, although a 'Promise' is controlling any number of processes, the javascript engine works on a single thread, so there is only one process running in a given time. Hence, when a 'start' function gets its 'CPU Time slot', it has the time to set its state, and then notifying 'Promise' without worrying another process might leave it in an inappropriate condition.
+				Starting from section 4A, a single 'Master-Promise' controls many, independent and simultaneous processes. This is not a problem under javascript.<br/>
+				In fact, although a 'Promise' is controlling any number of processes, the javascript engine works on a single thread, so there is only one process running in a given time. Hence, when a 'start' function gets its 'CPU Time slot', it has the time to set its state and then notifying 'Promise' without worrying if another process might leave it in an inappropriate condition.
 
 				<!--span style="font-size:0.9em;font-style: italic;">(When the going gets tough, the tough get going);</span-->
 			</p>	
@@ -1039,7 +1039,7 @@
 
 	<fieldset style="min-height:170px;">
 		<legend>
-			<span class="SectionLabel">Section 6A:</span><span class="SectionTitle">Single thread<span style="font-weight:normal;"> a demostration.</span></span>		
+			<span class="SectionLabel">Section 6A:</span><span class="SectionTitle">Single thread<span style="font-weight:normal;"> a demonstration.</span></span>		
 		
 		</legend>
 				
@@ -1048,13 +1048,13 @@
 			<tr>
 				<td class="msgContainer" id="msgContainer1" colspan="3"> 
 					This section tries to demonstrate what it means to be a single thread. In this demonstration:<br/>
-					- the horizzontal line is time.<br/>
-					- the time between 2 vertical segment is always 50 milliseconds.<br/>
-					- there are two process: the <span style="color:red;">red</span> and the <span style="color:green;">green</span><br/>
+					- the horizontal line is time.<br/>
+					- the time between 2 vertical segments is always 50 milliseconds.<br/>
+					- there are two processes: the <span style="color:red;">red</span> and the <span style="color:green;">green</span><br/>
 					- each process takes a random amount of time to complete<br/>
 					- an iteration is when both processes begin<br/>
 					- the scheduled interval between two iterations can be one of {100, 150, 200, 250, 300} [ms]<br/>
-					- the <span style="color:red;">red</span> process begins always before the <span style="color:green;">green</span> process and can least even more than (interval/2) [ms]<br/>
+					- the <span style="color:red;">red</span> process begins always before the <span style="color:green;">green</span> process and can last even more than (interval/2) [ms]<br/>
 					- the <span style="color:green;">green</span> process is always scheduled (interval/2) [ms] after the <span style="color:red;">red</span> process<br/>
 				</td>
 			</tr>
@@ -1071,10 +1071,10 @@
 			
 			<tr>
 				<td class="msgContainer" id="msgContainer1" colspan="3"> 
-					The example shows that, regardless of any time scheduling, operated by 'setInterval', every job (the function 'process') is executed only after the previous is completed <span style="font-size:0.9em;font-style: italic;">(Only when the interval of 'setInterval' is long enough, the schedule will be respected.)</span>
+					The example shows that, regardless of any time schedule, operated by 'setInterval', every job (the function 'process') is executed only after the previous is completed <span style="font-size:0.9em;font-style: italic;">(Only when the interval of 'setInterval' is long enough, the schedule will be respected.)</span>
 					<br/>
 					In other words, since the javascript 'engine' works on a single thread it does not allow <b>Concurrency</b>.<br/>
-					<span style="font-size:0.9em;font-style: italic;">(Two -or more- process cannot run at the same time: <span style="color:red;">red</span> and <span style="color:green;">green</span> bars never overlap.)</span>
+					<span style="font-size:0.9em;font-style: italic;">(Two -or more- processes cannot run at the same time: <span style="color:red;">red</span> and <span style="color:green;">green</span> bars never overlap.)</span>
 				</td>
 			</tr>
 		
@@ -1213,7 +1213,7 @@
 						&nbsp;&nbsp;.catch( ... );<br/>
 						<br/>
 				the fact is: they must be consecutive, but not necessarily in the same function!<br/>
-				<b>The constraint is</b>, masterPromise must be created, at latest, immediately before the first resolve/reject is called.
+				<b>The constraint is</b>, masterPromise must be created, at least, immediately before the first resolve/reject is called.
 				
 			</p>
 	</fieldset>		
@@ -1293,20 +1293,20 @@
 			<tr>
 				<td class="msgContainer" id="msgContainer1" colspan="3"> 					
 				In both the previous sections:<br/> 
-				- the 'Master-Promise' is instanciated immediatly before the first 'resolve' is called.<br/> 
+				- the 'Master-Promise' is instantiated immediately before the first 'resolve' is called.<br/> 
 				- the button 'then' is enabled immediatly after the 'masterPromise' is created.<br/>
 				It is a little bit strange configuration, but it works! 
 					<br/>
 					<br/>
-				What lesson we got from session 7?<br/><br/>
+				What lesson did we get from session 7?<br/><br/>
 				- 7A show that synchronous process stop the flow of code till they completed<br/>
 				- 7B & 7C show that 'Master-Promise' can't be created, after the synchronous processes it controls are complete.<br/>
 				<br/>
 				Hence <b>the process controlled by the 'Promise' MUST be asynchronous to be correctly managed</b>!
 				<br/>
 				<br/>
-				To be a little bit more detailed, the 'Master-Promise' needs to be created before any of the resolve/reject are called. But, to create a 'Master-Promise', for example using Promise.race(promises), we need to create the array of promises (the parameter of the function Promise.race)<br/>
-				To force the process controlled by each promise in promises to 'wait' till the 'Master-Promise' is correctly configured, we 'push' the process out of the current executing funtion, using setTimeout(start, 0);
+				To be a little bit more detailed, the 'Master-Promise' needs to be created before any of the resolve/reject are called. But, to create a 'Master-Promise', for example, using Promise.race(promises), we need to create the array of promises (the parameter of the function Promise.race)<br/>
+				To force the process controlled by each promise in promises to 'wait' till the 'Master-Promise' is correctly configured, we 'push' the process out of the current executing function, using setTimeout(start, 0);
 				</td>
 			</tr>
 
