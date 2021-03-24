@@ -85,7 +85,7 @@ let R4D = {};
 
 		if(!Promise.any){
 			alert("'Prmise.any' not definet on this browser.");
-			reurn false;
+			return false;
 		}
 		
 		debugger;	
