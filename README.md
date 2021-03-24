@@ -1,5 +1,5 @@
 # Promise 
-## [DEMO](https://jakyloo.github.io/Promise/)
+### [DEMO](https://jakyloo.github.io/Promise/)
 ## Tutorial for the 'Promise'_
 
 
