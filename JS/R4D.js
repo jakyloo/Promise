@@ -81,8 +81,14 @@ let R4D = {};
 	// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX //
 	
 	
-	function btnR4DAny_onclick(btn){	
-		//debugger;	
+	function btnR4DAny_onclick(btn){
+
+		if(!Promise.any){
+			alert("'Prmise.any' not definet on this browser.");
+			reurn false;
+		}
+		
+		debugger;	
 		
 		console.clear();
 		tools.disableBtns(btn);
