@@ -1,6 +1,6 @@
 # Promise 
 ### [DEMO](https://jakyloo.github.io/Promise/)
-## Tutorial for the 'Promise'_
+## Tutorial for the 'Promise'
 
 
 When I started learning 'Promise' I found over the net a plenty of example, confused and partial. So I decided to merge all that knowledge to realize this tutorial to explain how the Promise works.   ,
