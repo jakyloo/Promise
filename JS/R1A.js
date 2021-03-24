@@ -51,7 +51,7 @@
 	// writes a message at the right of the button.
 	function text(value, color){
 		
-		$('#tdR1AC3 span')
+		$('#tdR1AC1 span')
 		.css('background-color', color)
 		.css('color', '#fff')
 		.text(value);
