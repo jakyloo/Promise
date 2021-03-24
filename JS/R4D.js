@@ -84,7 +84,7 @@ let R4D = {};
 	function btnR4DAny_onclick(btn){
 
 		if(!Promise.any){
-			alert("'Prmise.any' not definet on this browser.");
+			alert("'Promise.any' not definet on this browser.");
 			return false;
 		}
 		

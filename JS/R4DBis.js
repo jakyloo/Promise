@@ -89,6 +89,13 @@
 	// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX //
 	
 	function btnR4DBisAny_onclick(btn){
+		
+		
+		if(!Promise.any){
+			alert("'Promise.any' not definet on this browser.");
+			return false;
+		}
+		
 		debugger;
 		console.clear();
 		tools.disableBtns(btn);
