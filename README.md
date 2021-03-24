@@ -3,7 +3,7 @@
 ## Tutorial for the 'Promise'
 
 
-When I started learning 'Promise' I found over the net a plenty of example, confused and partial. So I decided to merge all that knowledge to realize this tutorial to explain how the Promise works.   ,
+When I started learning 'Promise' I found over the net a plenty of example, confused and partial. So I decided to merge all that knowledge to realize this tutorial to understand how the Promise works.   ,
 
 This tutorial is made with a mixed technique that uses the browses as IDE. There are:
 - a 'frontend'(the page) with some description of the main concept.
